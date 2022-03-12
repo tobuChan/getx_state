@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_demo/app/routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -11,28 +10,21 @@ class HomeView extends GetView<HomeController> {
           title: Text('HomeView'),
           centerTitle: true,
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Obx(() {
-                return Text(controller.state.msg.value);
-              }),
-              Obx(() {
-                return Text(controller.state.msgFromSecond.value);
-              }),
-              ElevatedButton(
-                  onPressed: () {
-                    controller.ChangeMsg();
+        body: Obx(() {
+          return ListView.builder(
+              itemCount: controller.state.goodsData.length,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    controller.toDetail(index);
                   },
-                  child: Text('Change')),
-              ElevatedButton(
-                  onPressed: () {
-                    controller.toSecond();
-                  },
-                  child: Text('go to second page'))
-            ],
-          ),
-        ));
+                  child: ListTile(
+                    title: Text(controller.state.goodsData[index].title ??
+                        '')
+                  ),
+                );
+              });
+        })
+    );
   }
 }

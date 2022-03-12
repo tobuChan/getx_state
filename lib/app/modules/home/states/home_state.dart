@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
+import 'package:getx_demo/app/data/GoodsModel.dart';
 class HomeState{
-  ///定义监听变量
-  RxString msg='alice'.obs;
-  RxString msgFromSecond='value from second'.obs;
+  RxList<Result> goodsData=<Result>[].obs;
 }

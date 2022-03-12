@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import '../../../data/GoodsModel.dart';
 class SecondState{
-  RxString msgFromHome=''.obs;
+  Result Detail=Result();
+
 }

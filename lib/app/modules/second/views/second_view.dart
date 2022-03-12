@@ -11,21 +11,8 @@ class SecondView extends GetView<SecondController> {
       appBar: AppBar(
         title: Text('SecondView'),
         centerTitle: true,
-        leading: IconButton(
-          onPressed: (){
-            controller.getBack();
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
       ),
-      body: Center(
-        child: Obx(() {
-          return Text(
-            controller.state.msgFromHome.value,
-            style: TextStyle(fontSize: 20),
-          );
-        }),
-      ),
+      body: Text(controller.state.Detail.title??'')
     );
   }
 }
