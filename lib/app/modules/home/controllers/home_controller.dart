@@ -17,6 +17,7 @@ class HomeController extends GetxController {
     Get.toNamed(Routes.SECOND,arguments: state.goodsData[index]);
   }
 
+
   @override
   void onInit() {
     super.onInit();
